@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		CE3F40BB26AD3DFB001654B1 /* SortingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F40BA26AD3DFB001654B1 /* SortingUITests.swift */; };
 		CE3F40CD26AD4295001654B1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F40CC26AD4295001654B1 /* APIService.swift */; };
 		CE3F40D326AD42B1001654B1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F40D226AD42B1001654B1 /* Model.swift */; };
+		CEC602E426ADA09B006B8B79 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC602E326ADA09B006B8B79 /* ModelView.swift */; };
 		EE3EF1449E3AF9D990240051 /* Pods_Sorting_SortingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CD026317B5B17E0F5269AD /* Pods_Sorting_SortingUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		CE3F40BC26AD3DFB001654B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3F40CC26AD4295001654B1 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CE3F40D226AD42B1001654B1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CEC602E326ADA09B006B8B79 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 		D544E69139DC5C8CAAF1E26D /* Pods-Sorting-SortingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sorting-SortingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sorting-SortingUITests/Pods-Sorting-SortingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC8B29CC3F5BEBFDA521F2D7 /* Pods-SortingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortingTests.debug.xcconfig"; path = "Target Support Files/Pods-SortingTests/Pods-SortingTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +107,6 @@
 				EC8B29CC3F5BEBFDA521F2D7 /* Pods-SortingTests.debug.xcconfig */,
 				6D40D672F62CDC4D303CD6C7 /* Pods-SortingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,6 +154,7 @@
 				CE3F40A626AD3DFB001654B1 /* Info.plist */,
 				CE3F40D126AD42B1001654B1 /* Model */,
 				CE3F40CB26AD4295001654B1 /* ApiService */,
+				CEC602E326ADA09B006B8B79 /* ModelView.swift */,
 			);
 			path = Sorting;
 			sourceTree = "<group>";
@@ -431,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC602E426ADA09B006B8B79 /* ModelView.swift in Sources */,
 				CE3F40D326AD42B1001654B1 /* Model.swift in Sources */,
 				CE3F409D26AD3DF9001654B1 /* ViewController.swift in Sources */,
 				CE3F409926AD3DF9001654B1 /* AppDelegate.swift in Sources */,

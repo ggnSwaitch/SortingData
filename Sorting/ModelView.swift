@@ -1,32 +1,62 @@
 //
-//  ViewController.swift
+//  ModelView.swift
 //  Sorting
 //
 //  Created by GaGan on 25/7/21.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+
+struct APICall {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
     
-        APICall().getData()
-        
-        
+    func getData() {
+        APIService().getMoviesData{ (festivals) in
+            var dict: Dictionary  = [String:String]()
+            var array: Array = [String]()
+            var ar: [Dictionary<String, String>] = []
+            
+            for festival in festivals{
+                for band in festival.bands!{
+                    
+                    dict.updateValue(band.recordLabel ?? "", forKey: "RecordLabel")
+                    dict.updateValue(band.name ?? "", forKey: "BandName")
+                    dict.updateValue(festival.name ?? "", forKey: "FestivalName")
+                    
+                    ar.append(dict)
+                    array.append(band.recordLabel ?? "")
+                    array = array.sorted(by: <)
+                    
+                }
+            }
+            
+            array = self.unique(source: array)
+            var resultArray = [Any]()
+            for a in array {
+                let result:[Any] = self.findBandForValueInDicArr(searchableValue: a , array: ar)!
+                
+                for dictionary in result
+                {
+                    resultArray.append(dictionary)
+                }
+            }
+            
+            dump(resultArray)
+            
+        }
     }
+    
     
     func findBandForValueInDicArr(searchableValue: String, array: [Dictionary<String, String>]) -> [Any]?
     {
         var fileteredArray: [Any] = []
         var dict = [Any]()
         var bands: Array = [Any]()
-        var festivals: Array = [String]()
-       
+        
         for arr in array
         {
-            for (key, value) in arr {
+            for (_, value) in arr {
                 if (value.contains(searchableValue))
                 {
                     fileteredArray.removeAll()
@@ -36,14 +66,12 @@ class ViewController: UIViewController {
                     let festivalsForBand = findFestivalForValueInDicArr(searchableValue: arr["BandName"] ?? "", array: array) ?? nil//
                     let festival = FestivalforBand(name: festivalsForBand!)
                     
-                    var bandForRecordLabel = BandForRecordLabel.init(name: arr["BandName"] ?? "Not Found", festival: festival)
-                   
-                    var bandForRecordLabelName = bandForRecordLabel.name 
-                   
+                    let bandForRecordLabel = BandForRecordLabel.init(name: arr["BandName"] ?? "Not Found", festival: festival)
+                    
                     bands.append(bandForRecordLabel)
                     
                     dict.append(bands)
-                   
+                    
                     fileteredArray.append(dict)
                     
                 }
@@ -70,11 +98,11 @@ class ViewController: UIViewController {
                     bands.append(arr["BandName"] ?? "")
                     bands = bands.sorted(by: <)
                     festivals.append(arr["FestivalName"] ?? "")
-                   
+                    
                     dict.updateValue(festivals, forKey: "FestivalName")
                     
                     fileteredArray.append(contentsOf: festivals)
-                    fileteredArray.sort()
+                    fileteredArray.sort() //Sorting alphabetically
                 }
             }
             
@@ -96,23 +124,6 @@ class ViewController: UIViewController {
         return buffer
     }
     
-}
-
-
-struct FestivalforBand {
-    var name: [String]
-}
-
-
-struct BandForRecordLabel {
-    var name: String
-    var festival: FestivalforBand
-}
-
-
-struct RecordLabel {
-    var name: String
-    var band: BandForRecordLabel
 }
 
 
