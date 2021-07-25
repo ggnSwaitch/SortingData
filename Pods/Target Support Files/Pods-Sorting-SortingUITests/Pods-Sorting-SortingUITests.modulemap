@@ -1,0 +1,6 @@
+framework module Pods_Sorting_SortingUITests {
+  umbrella header "Pods-Sorting-SortingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
